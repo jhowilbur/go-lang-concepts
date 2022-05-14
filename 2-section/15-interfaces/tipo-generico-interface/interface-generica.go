@@ -12,6 +12,4 @@ func main() {
 	generica(10)
 	generica(10.5)
 	generica(true)
-
-	
 }
