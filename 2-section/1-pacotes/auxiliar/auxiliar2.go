@@ -1,7 +1,0 @@
-package auxiliar
-
-import "fmt"
-
-func escrever2() {
-	fmt.Println("Escrever 2 - Function 2")
-}
