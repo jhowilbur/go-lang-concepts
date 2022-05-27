@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"time"
-)
+import "os"
 
 /*
 	Worker pools
@@ -12,7 +9,7 @@ com esse pattern vc possui varios workers pegando dessa fila e executando as tar
 */
 
 func main() {
-	timeStart := time.Now().Second()
+	//timeStart := time.Now().Second()
 	// canal contendo sequencia de numeros a executar
 	tasks := make(chan int, 45) //canal com 45 de buffer
 
@@ -20,8 +17,6 @@ func main() {
 	results := make(chan int, 45)
 
 	go worker(tasks, results) // antes mesmo de popular canal de tasks
-	go worker(tasks, results)
-	go worker(tasks, results)
 	go worker(tasks, results)
 
 	for i := 0; i < 45; i++ {
@@ -34,7 +29,8 @@ func main() {
 		println(result)
 	}
 
-	fmt.Printf("final : %d", time.Now().Second()-timeStart)
+	//fmt.Printf("final : %d", time.Now().Second()-timeStart)
+	os.Exit(0)
 }
 
 // posso usar das setas para definir se recebe ou armazena dados no canal
